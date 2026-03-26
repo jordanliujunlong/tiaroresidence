@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ザ・パークハウス晴海タワーズ ティアロレジデンス 管理組合</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --white: #ffffff;
+  --bg: #f5f5f3;
+  --bg2: #efefed;
+  --text: #2a2a2a;
+  --text-mid: #555;
+  --text-light: #888;
+  --border: #d8d8d4;
+  --accent: #1a3a5a;
+  --accent2: #2d5a8c;
+  --gold: #8c6d3f;
+  --red: #c0392b;
+  --green: #1a6640;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ─── HEADER ─── */
+header {
+  background: var(--accent);
+  padding: 0;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.header-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 32px;
+}
+.header-logo {
+  display: flex; align-items: center; gap: 14px;
+}
+.logo-mark {
+  width: 42px; height: 42px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; color: white;
+  font-family: 'Noto Serif JP', serif; font-weight: 300;
+}
+.logo-text { color: white; line-height: 1.4; }
+.logo-text .main { font-size: 15px; font-weight: 500; letter-spacing: 0.05em; }
+.logo-text .sub { font-size: 10px; color: rgba(255,255,255,0.65); letter-spacing: 0.1em; }
+.header-login a {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: white; text-decoration: none;
+  padding: 7px 18px; font-size: 12px; border-radius: 3px;
+  transition: background 0.2s;
+}
+.header-login a:hover { background: rgba(255,255,255,0.25); }
+
+/* NAV */
+nav {
+  background: rgba(0,0,0,0.25);
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+nav ul {
+  display: flex; list-style: none;
+  padding: 0 32px;
+}
+nav ul li a {
+  display: block;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 12.5px;
+  padding: 11px 18px;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 2px solid transparent;
+}
+nav ul li a:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+  border-bottom-color: rgba(255,255,255,0.5);
+}
+
+/* ─── HERO BANNER ─── */
+.hero-banner {
+  background: linear-gradient(135deg, #1a3a5a 0%, #2d5a8c 50%, #1a3a5a 100%);
+  padding: 56px 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-banner h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px; font-weight: 300;
+  color: white; margin-bottom: 8px;
+  position: relative;
+}
+.hero-banner p {
+  color: rgba(255,255,255,0.65);
+  font-size: 13px; letter-spacing: 0.1em;
+  position: relative;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.8);
+  font-size: 11px; padding: 4px 14px;
+  border-radius: 20px; margin-bottom: 16px;
+  letter-spacing: 0.15em;
+  position: relative;
+}
+
+/* ─── LAYOUT ─── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 24px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ─── CARDS ─── */
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.card-header {
+  background: var(--accent);
+  color: white;
+  padding: 11px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-header.green { background: var(--green); }
+.card-header.gold { background: var(--gold); }
+.card-header.gray { background: #5a5a5a; }
+.card-body { padding: 20px 18px; }
+
+/* ─── NEWS LIST ─── */
+.news-list { list-style: none; }
+.news-item {
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+.news-item:last-child { border-bottom: none; padding-bottom: 0; }
+.news-date {
+  font-size: 12px; color: var(--text-light);
+  white-space: nowrap; font-weight: 400;
+}
+.news-tag {
+  font-size: 10px; padding: 2px 8px;
+  border-radius: 2px; white-space: nowrap; font-weight: 500;
+}
+.tag-info    { background: #e8f0f8; color: #1a3a5a; }
+.tag-urgent  { background: #fdecea; color: #c0392b; }
+.tag-event   { background: #e8f5ee; color: #1a6640; }
+.tag-notice  { background: #fef9e7; color: #7d6608; }
+.tag-repair  { background: #fdf2e9; color: #784212; }
+.news-title a {
+  color: var(--text); text-decoration: none; font-size: 13.5px;
+  transition: color 0.2s;
+}
+.news-title a:hover { color: var(--accent2); text-decoration: underline; }
+
+/* ─── QUICK LINKS ─── */
+.quick-links {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px; overflow: hidden;
+  margin-bottom: 24px;
+}
+.quick-link {
+  background: white;
+  padding: 18px 14px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--accent);
+  transition: background 0.2s;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+}
+.quick-link:hover { background: #eef3f8; }
+.quick-link .icon { font-size: 24px; }
+.quick-link .label { font-size: 12px; font-weight: 500; letter-spacing: 0.05em; }
+.quick-link .sub { font-size: 10px; color: var(--text-light); }
+
+/* ─── TABLE ─── */
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+th, td {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  text-align: left; vertical-align: top;
+}
+th {
+  background: #f0f2f5;
+  font-weight: 500; color: var(--accent);
+  width: 32%; white-space: nowrap;
+}
+tr:nth-child(even) td { background: #fafafa; }
+
+/* ─── SIDEBAR ─── */
+.sidebar { position: sticky; top: 80px; }
+.sidebar .card { margin-bottom: 16px; }
+.sidebar-menu { list-style: none; }
+.sidebar-menu li a {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px;
+  color: var(--text); text-decoration: none;
+  font-size: 13px;
+  border-bottom: 1px solid var(--bg);
+  transition: background 0.15s, color 0.15s;
+}
+.sidebar-menu li a:hover {
+  background: #eef3f8; color: var(--accent2);
+}
+.sidebar-menu li a::before {
+  content: '›'; color: var(--accent);
+  font-size: 16px; font-weight: 700;
+}
+.sidebar-menu li:last-child a { border-bottom: none; }
+
+/* Calendar widget */
+.mini-cal { width: 100%; font-size: 12px; }
+.cal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 4px; margin-bottom: 8px;
+  font-weight: 500; color: var(--accent);
+}
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+}
+.cal-day-name {
+  text-align: center; font-size: 10px;
+  color: var(--text-light); padding: 4px 0;
+  font-weight: 500;
+}
+.cal-day {
+  text-align: center; padding: 5px 0;
+  font-size: 12px; border-radius: 2px;
+  cursor: default;
+}
+.cal-day.sun { color: #c0392b; }
+.cal-day.sat { color: #2980b9; }
+.cal-day.today {
+  background: var(--accent); color: white;
+  border-radius: 50%; width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  margin: auto;
+}
+.cal-day.event { font-weight: 700; color: var(--green); }
+.cal-day.empty { color: transparent; }
+
+/* Weather-like info box */
+.info-box {
+  padding: 14px; font-size: 12.5px;
+  border-bottom: 1px solid var(--bg);
+}
+.info-box:last-child { border-bottom: none; }
+.info-box .label { font-size: 10px; color: var(--text-light); margin-bottom: 4px; letter-spacing: 0.08em; }
+.info-box .value { font-size: 15px; font-weight: 500; color: var(--accent); }
+.info-box .detail { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+
+/* ─── SECTION TITLE ─── */
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px; font-weight: 300;
+  color: var(--accent);
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title span { font-size: 12px; color: var(--text-light); font-family: 'Noto Sans JP', sans-serif; font-weight: 300; letter-spacing: 0.1em; }
+
+/* Facility grid */
+.facility-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px; margin-top: 4px;
+}
+.facility-item {
+  border: 1px solid var(--border);
+  border-radius: 3px; padding: 14px 12px;
+  background: white; text-align: center;
+}
+.facility-item .ficon { font-size: 28px; margin-bottom: 6px; }
+.facility-item .fname { font-size: 12px; font-weight: 500; color: var(--accent); margin-bottom: 3px; }
+.facility-item .ffloor { font-size: 10px; color: var(--text-light); }
+
+/* Contact form */
+.form-row { margin-bottom: 14px; }
+.form-row label { display: block; font-size: 12px; color: var(--text-mid); margin-bottom: 5px; font-weight: 500; }
+.form-row label .req { color: var(--red); margin-left: 4px; }
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 8px 11px;
+  font-size: 13px;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: var(--text);
+  background: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus { border-color: var(--accent2); }
+.form-row textarea { height: 90px; resize: vertical; }
+.form-submit {
+  background: var(--accent);
+  color: white;
+  border: none; border-radius: 3px;
+  padding: 11px 32px;
+  font-size: 13px;
+  font-family: 'Noto Sans JP', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: 0.08em;
+}
+.form-submit:hover { background: var(--accent2); }
+
+/* ─── ALERT BANNER ─── */
+.alert-banner {
+  background: #fdecea;
+  border: 1px solid #f5c6c2;
+  border-left: 4px solid var(--red);
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border-radius: 0 3px 3px 0;
+  font-size: 13px;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.alert-banner .alert-icon { font-size: 18px; flex-shrink: 0; }
+.alert-banner strong { display: block; color: var(--red); font-size: 13px; margin-bottom: 3px; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--accent);
+  color: rgba(255,255,255,0.75);
+  margin-top: 40px;
+}
+.footer-main {
+  max-width: 1100px; margin: 0 auto;
+  padding: 36px 24px;
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-col h3 {
+  color: white; font-size: 12px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  margin-bottom: 14px; padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.footer-col p, .footer-col li {
+  font-size: 12px; line-height: 2; color: rgba(255,255,255,0.65);
+  list-style: none;
+}
+.footer-col a { color: rgba(255,255,255,0.65); text-decoration: none; }
+.footer-col a:hover { color: white; text-decoration: underline; }
+.footer-bottom {
+  background: rgba(0,0,0,0.3);
+  text-align: center;
+  padding: 14px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 8px 32px;
+  font-size: 11px; color: var(--text-light);
+  display: flex; align-items: center; gap: 6px;
+}
+.breadcrumb a { color: var(--accent2); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* Divider */
+.divider { height: 1px; background: var(--border); margin: 24px 0; }
+
+/* Badge */
+.badge {
+  display: inline-block; font-size: 10px;
+  padding: 2px 8px; border-radius: 2px;
+  font-weight: 500; vertical-align: middle;
+}
+.badge-new { background: var(--red); color: white; }
+.badge-update { background: var(--accent2); color: white; }
+
+@media (max-width: 768px) {
+  .container { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  nav ul { flex-wrap: wrap; padding: 0 16px; }
+  nav ul li a { padding: 9px 10px; font-size: 11px; }
+  .header-top { padding: 12px 16px; }
+  .footer-main { grid-template-columns: 1fr; gap: 24px; }
+  .facility-grid { grid-template-columns: 1fr 1fr; }
+  .quick-links { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+    <div class="header-logo">
+      <div class="logo-mark">T</div>
+      <div class="logo-text">
+        <div class="main">ザ・パークハウス晴海タワーズ ティアロレジデンス</div>
+        <div class="sub">管理組合 公式ウェブサイト　／　TIARO RESIDENCE MANAGEMENT ASSOCIATION</div>
+      </div>
+    </div>
+    <div class="header-login">
+      <a href="#login">🔒 住民ログイン</a>
+    </div>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#news">お知らせ</a></li>
+      <li><a href="tiaro_residence.html">ティアロレジデンスについて</a></li>
+      <li><a href="#about">管理組合について</a></li>
+      <li><a href="#facilities">共用施設</a></li>
+      <li><a href="#rules">規約・細則</a></li>
+      <li><a href="#minutes">議事録</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">ホーム</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+  <!-- ─── MAIN COLUMN ─── -->
+  <main>
+
+    <!-- ALERT -->
+    <div class="alert-banner">
+      <div class="alert-icon">⚠️</div>
+      <div>
+        <strong>重要なお知らせ</strong>
+        2025年3月より共用部の大規模修繕工事が開始されます。詳細は下記お知らせをご確認ください。工事期間中はご不便をおかけしますが、ご理解ご協力のほどよろしくお願いいたします。
+      </div>
+    </div>
+
+    <!-- NEWS -->
+    <section id="news">
+      <div class="section-title">
+        お知らせ <span>INFORMATION</span>
+      </div>
+
+      <div class="card">
+        <div class="card-header">📢 最新のお知らせ</div>
+        <div class="card-body">
+          <ul class="news-list">
+            <li class="news-item">
+              <span class="news-date">2025.03.15</span>
+              <span class="news-tag tag-urgent">重要</span>
+              <span class="news-title"><a href="news_01_daikibo_shuzengoji.html">大規模修繕工事のお知らせ（外壁・バルコニー）<span class="badge badge-new">NEW</span></a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2025.03.10</span>
+              <span class="news-tag tag-event">行事</span>
+              <span class="news-title"><a href="news_02_teikisokai.html">第12回 定期総会 開催のご案内（4月20日）</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2025.03.05</span>
+              <span class="news-tag tag-info">お知らせ</span>
+              <span class="news-title"><a href="news_03_kanrihi_kaitei.html">2025年度 管理費・修繕積立金の改定について</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2025.02.28</span>
+              <span class="news-tag tag-repair">設備</span>
+              <span class="news-title"><a href="news_04_elevator_tenken.html">エレベーター定期点検作業のお知らせ（3月8日）</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2025.02.20</span>
+              <span class="news-tag tag-notice">規約</span>
+              <span class="news-title"><a href="news_05_pet_kaisei.html">ペット飼育細則の一部改正について <span class="badge badge-update">改定</span></a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title">
+        管理組合について <span>ABOUT</span>
+      </div>
+      <div class="card">
+        <div class="card-header">🏢 組織概要</div>
+        <div class="card-body">
+          <table>
+            <tr><th>名称</th><td>ザ・パークハウス晴海タワーズ ティアロレジデンス管理組合</td></tr>
+            <tr><th>所在地</th><td>東京都中央区晴海２丁目28番</td></tr>
+            <tr><th>区分所有者数</th><td>861戸</td></tr>
+            <tr><th>管理会社</th><td>三菱地所コミュニティ株式会社</td></tr>
+            <tr><th>管理事務室</th><td>1階管理事務室（受付時間：平日 9:00〜17:00）</td></tr>
+            <tr><th>理事会</th><td>毎月第3土曜日 14:00〜（会議室A）</td></tr>
+            <tr><th>定期総会</th><td>毎年4月（予定）</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">👥 現役員一覧（2024年度）</div>
+        <div class="card-body">
+          <table>
+            <tr><th>理事長</th><td>○○ ○○（○○○号室）</td></tr>
+            <tr><th>副理事長</th><td>○○ ○○（○○○号室）</td></tr>
+            <tr><th>会計担当理事</th><td>○○ ○○（○○○号室）</td></tr>
+            <tr><th>修繕担当理事</th><td>○○ ○○（○○○号室）</td></tr>
+            <tr><th>防災担当理事</th><td>○○ ○○（○○○号室）</td></tr>
+            <tr><th>監事</th><td>○○ ○○（○○○号室）　／　○○ ○○（○○○号室）</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <div class="divider"></div>
+
+    <!-- RULES -->
+    <section id="rules">
+      <div class="section-title">
+        規約・細則 <span>RULES</span>
+      </div>
+      <div class="card">
+        <div class="card-header gray">📄 ダウンロード資料</div>
+        <div class="card-body">
+          <ul class="news-list">
+            <li class="news-item">
+              <span class="news-date">2024.04</span>
+              <span class="news-tag tag-info">規約</span>
+              <span class="news-title"><a href="#">管理規約（全文）2024年度改定版 [PDF]</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2024.04</span>
+              <span class="news-tag tag-info">細則</span>
+              <span class="news-title"><a href="#">使用細則（共用施設利用細則含む）[PDF]</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2024.04</span>
+              <span class="news-tag tag-notice">細則</span>
+              <span class="news-title"><a href="#">ペット飼育細則 [PDF] <span class="badge badge-update">2025年3月改定</span></a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2023.04</span>
+              <span class="news-tag tag-info">細則</span>
+              <span class="news-title"><a href="#">駐車場使用細則 [PDF]</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2023.04</span>
+              <span class="news-tag tag-info">細則</span>
+              <span class="news-title"><a href="#">リフォーム工事施工細則 [PDF]</a></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- MINUTES -->
+    <section id="minutes">
+      <div class="section-title">
+        議事録 <span>MINUTES</span>
+      </div>
+      <div class="card">
+        <div class="card-header">📋 理事会・総会 議事録</div>
+        <div class="card-body">
+          <ul class="news-list">
+            <li class="news-item">
+              <span class="news-date">2025.02</span>
+              <span class="news-tag tag-info">理事会</span>
+              <span class="news-title"><a href="#">第139回 理事会議事録（2025年2月） <span class="badge badge-new">NEW</span></a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2025.01</span>
+              <span class="news-tag tag-info">理事会</span>
+              <span class="news-title"><a href="#">第138回 理事会議事録（2025年1月）</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2024.12</span>
+              <span class="news-tag tag-info">理事会</span>
+              <span class="news-title"><a href="#">第137回 理事会議事録（2024年12月）</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2024.04</span>
+              <span class="news-tag tag-event">総会</span>
+              <span class="news-title"><a href="#">第11回 定期総会 議事録（2024年4月）</a></span>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2024.04</span>
+              <span class="news-tag tag-event">総会</span>
+              <span class="news-title"><a href="#">第11回 定期総会 決算・予算書類一式 [PDF]</a></span>
+            </li>
+          </ul>
+          <p style="font-size:12px; color:var(--text-light); margin-top:14px;">
+            ※ 議事録の閲覧は住民の方のみとなります。ログインが必要です。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">
+        お問い合わせ <span>CONTACT</span>
+      </div>
+      <div class="card">
+        <div class="card-header">✉️ お問い合わせフォーム</div>
+        <div class="card-body">
+          <p style="font-size:13px; color:var(--text-mid); margin-bottom:18px; line-height:1.9;">
+            管理組合・共用施設・マンション管理に関するお問い合わせはこちらからお送りください。<br>
+            <strong>管理事務室</strong>への直接のお電話も承っております（平日 9:00〜17:00）。
+          </p>
+          <form onsubmit="return false;">
+            <div class="form-row">
+              <label>お名前 <span class="req">*</span></label>
+              <input type="text" placeholder="例：田中 太郎">
+            </div>
+            <div class="form-row">
+              <label>部屋番号 <span class="req">*</span></label>
+              <input type="text" placeholder="例：1234">
+            </div>
+            <div class="form-row">
+              <label>メールアドレス <span class="req">*</span></label>
+              <input type="email" placeholder="例：taro@example.com">
+            </div>
+            <div class="form-row">
+              <label>お問い合わせ種別</label>
+              <select>
+                <option value="">選択してください</option>
+                <option>共用施設について</option>
+                <option>管理費・修繕積立金について</option>
+                <option>修繕・設備について</option>
+                <option>騒音・生活マナーについて</option>
+                <option>駐車場・駐輪場について</option>
+                <option>リフォーム申請について</option>
+                <option>その他</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label>お問い合わせ内容 <span class="req">*</span></label>
+              <textarea placeholder="お問い合わせ内容をご記入ください"></textarea>
+            </div>
+            <button class="form-submit" type="submit">送信する →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── SIDEBAR ─── -->
+  <aside class="sidebar">
+
+    <!-- QUICK LINKS -->
+    <div class="quick-links">
+      <a href="#news" class="quick-link">
+        <span class="icon">📢</span>
+        <span class="label">お知らせ</span>
+        <span class="sub">最新情報</span>
+      </a>
+      <a href="#facilities" class="quick-link">
+        <span class="icon">🏢</span>
+        <span class="label">議事録</span>
+        <span class="sub">理事会</span>
+      </a>
+      <a href="#rules" class="quick-link">
+        <span class="icon">📄</span>
+        <span class="label">規約・細則</span>
+        <span class="sub">ダウンロード</span>
+      </a>
+      <a href="#contact" class="quick-link">
+        <span class="icon">✉️</span>
+        <span class="label">お問い合わせ</span>
+        <span class="sub">フォーム</span>
+      </a>
+    </div>
+
+    <!-- CALENDAR -->
+    <div class="card">
+      <div class="card-header">📅 2025年 3月</div>
+      <div class="card-body" style="padding:14px">
+        <div class="mini-cal">
+          <div class="cal-grid">
+            <div class="cal-day-name" style="color:#c0392b">日</div>
+            <div class="cal-day-name">月</div>
+            <div class="cal-day-name">火</div>
+            <div class="cal-day-name">水</div>
+            <div class="cal-day-name">木</div>
+            <div class="cal-day-name">金</div>
+            <div class="cal-day-name" style="color:#2980b9">土</div>
+            <!-- week 1 -->
+            <div class="cal-day empty"></div>
+            <div class="cal-day empty"></div>
+            <div class="cal-day empty"></div>
+            <div class="cal-day empty"></div>
+            <div class="cal-day empty"></div>
+            <div class="cal-day empty"></div>
+            <div class="cal-day sat">1</div>
+            <!-- week 2 -->
+            <div class="cal-day sun">2</div>
+            <div class="cal-day">3</div>
+            <div class="cal-day">4</div>
+            <div class="cal-day">5</div>
+            <div class="cal-day">6</div>
+            <div class="cal-day">7</div>
+            <div class="cal-day sat">8</div>
+            <!-- week 3 -->
+            <div class="cal-day sun">9</div>
+            <div class="cal-day">10</div>
+            <div class="cal-day">11</div>
+            <div class="cal-day">12</div>
+            <div class="cal-day">13</div>
+            <div class="cal-day">14</div>
+            <div class="cal-day sat">15</div>
+            <!-- week 4 -->
+            <div class="cal-day sun">16</div>
+            <div class="cal-day">17</div>
+            <div class="cal-day">18</div>
+            <div class="cal-day">19</div>
+            <div class="cal-day">20</div>
+            <div class="cal-day">21</div>
+            <div class="cal-day today">22</div>
+            <!-- week 5 -->
+            <div class="cal-day sun">23</div>
+            <div class="cal-day">24</div>
+            <div class="cal-day event" title="防災点検">25</div>
+            <div class="cal-day">26</div>
+            <div class="cal-day">27</div>
+            <div class="cal-day">28</div>
+            <div class="cal-day sat event" title="理事会">29</div>
+            <!-- week 6 -->
+            <div class="cal-day sun">30</div>
+            <div class="cal-day">31</div>
+          </div>
+        </div>
+        <div style="margin-top:10px; font-size:11px; color:var(--text-light); line-height:1.8;">
+          <span style="color:var(--green); font-weight:700;">■</span> 管理組合イベント
+        </div>
+      </div>
+    </div>
+
+    <!-- BUILDING INFO -->
+    <div class="card">
+      <div class="card-header gold">🏗️ 建物情報</div>
+      <div class="card-body" style="padding:0">
+        <div class="info-box">
+          <div class="label">竣工年月</div>
+          <div class="value">2016年3月</div>
+        </div>
+        <div class="info-box">
+          <div class="label">地上階数 / 総戸数</div>
+          <div class="value">49階 / 861戸</div>
+        </div>
+        <div class="info-box">
+          <div class="label">構造</div>
+          <div class="value">RC造 免震構造</div>
+          <div class="detail">積層ゴム56基＋オイルダンパー</div>
+        </div>
+        <div class="info-box">
+          <div class="label">施工 / 設計</div>
+          <div class="value" style="font-size:13px">鹿島建設 / 三菱地所設計</div>
+        </div>
+        <div class="info-box">
+          <div class="label">受賞</div>
+          <div class="value" style="font-size:13px">2016年度グッドデザイン賞</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU -->
+    <div class="card">
+      <div class="card-header">🔗 関連リンク</div>
+      <div class="card-body" style="padding:4px 0">
+        <ul class="sidebar-menu">
+          <li><a href="#">防災マニュアル</a></li>
+          <li><a href="#">ゴミ収集カレンダー</a></li>
+          <li><a href="#">駐車場空き情報</a></li>
+          <li><a href="#">シャトルバス時刻表</a></li>
+          <li><a href="#">カーシェアリング</a></li>
+          <li><a href="#">管理費自動引落の変更</a></li>
+          <li><a href="#">近隣施設マップ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- EMERGENCY -->
+    <div class="card">
+      <div class="card-header" style="background:var(--red)">🚨 緊急連絡先</div>
+      <div class="card-body" style="padding:0">
+        <div class="info-box">
+          <div class="label">管理事務室（直通）</div>
+          <div class="value">03-XXXX-XXXX</div>
+          <div class="detail">平日 9:00〜17:00</div>
+        </div>
+        <div class="info-box">
+          <div class="label">夜間・休日緊急ダイヤル</div>
+          <div class="value">03-XXXX-XXXX</div>
+          <div class="detail">24時間対応</div>
+        </div>
+        <div class="info-box">
+          <div class="label">管理会社</div>
+          <div class="value" style="font-size:12px">三菱地所コミュニティ㈱</div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="footer-col">
+      <h3>管理組合について</h3>
+      <p>
+        ザ・パークハウス晴海タワーズ<br>
+        ティアロレジデンス管理組合<br>
+        〒104-0053<br>
+        東京都中央区晴海２丁目28番<br>
+        管理事務室：1階<br>
+        受付時間：平日 9:00〜17:00<br>
+        TEL：03-XXXX-XXXX
+      </p>
+    </div>
+    <div class="footer-col">
+      <h3>サイトメニュー</h3>
+      <ul>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#about">管理組合について</a></li>
+        <li><a href="#facilities">共用施設</a></li>
+        <li><a href="#rules">規約・細則</a></li>
+        <li><a href="#minutes">議事録</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>アクセス</h3>
+      <ul>
+        <li>都営大江戸線「勝どき駅」</li>
+        <li>A2a出口より徒歩13分</li>
+        <li>&nbsp;</li>
+        <li>東京メトロ有楽町線「月島駅」</li>
+        <li>10番出口より徒歩13分</li>
+        <li>&nbsp;</li>
+        <li>シャトルバス運行中</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 ザ・パークハウス晴海タワーズ ティアロレジデンス管理組合 ／ プライバシーポリシー
+  </div>
+</footer>
+
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if(href === '#' || href === '#login') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if(target) {
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
